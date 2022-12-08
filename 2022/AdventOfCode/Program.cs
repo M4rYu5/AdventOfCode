@@ -2,7 +2,7 @@
 
 
 
-Console.WriteLine(Day7.SecondPart());
+Console.WriteLine(Day8.SecondPart());
 
 
 
