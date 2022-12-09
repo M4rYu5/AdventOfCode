@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
-    internal sealed class DayX
+    internal sealed class Day1X
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("dayX_input.txt");
+            var inputs = File.ReadAllLines("day1X_input.txt");
 
             int points = 0;
             
@@ -24,7 +24,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("dayX_input.txt");
+            var inputs = File.ReadAllLines("day1X_input.txt");
 
             int points = 0;
             
