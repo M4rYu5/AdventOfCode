@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,8 @@ namespace AdventOfCode.Day11
 
     public class Item
     {
-        private readonly LinkedList<Operand> values = new();
+        private readonly List<Operand> _values = new();
+        private readonly DumbItemCache _cache = new();
 
         public Item(long val)
         {
@@ -28,43 +30,52 @@ namespace AdventOfCode.Day11
 
         public long Mod(int mod)
         {
-            if (values.Count == 0)
+            if (_values.Count == 0)
                 return 0;
 
-            var node = values.First;
-            if (node == null)
-                return 0;
-
-            var _mod = node.Value.Value % mod;
-            while (node.Next != null)
+            var cache = _cache.Get(new DumbItemCache.Key(mod));
+            long partialMod;
+            int i;
+            if (cache == null)
             {
-                node = node.Next;
-                _mod = node.Value.Operator switch
+                partialMod = _values.First().Value % mod;
+                i = 1;
+            }
+            else
+            {
+                partialMod = cache.Value.ModValue;
+                i = cache.Value.Index;
+            }
+
+            for(; i < _values.Count; i++)
+            {
+                partialMod = _values[i].Operator switch
                 {
-                    Operator.add => (_mod + node.Value.Value % mod) % mod,
-                    Operator.multiply => (_mod * node.Value.Value % mod) % mod,
-                    Operator.multiplySelf => (_mod * _mod) % mod,
+                    Operator.add => (partialMod + _values[i].Value % mod) % mod,
+                    Operator.multiply => (partialMod * _values[i].Value % mod) % mod,
+                    Operator.multiplySelf => (partialMod * partialMod) % mod,
                     _ => throw new UnreachableException()
                 };
             }
-            return _mod;
+            _cache.Cache(new DumbItemCache.Key(mod), new DumbItemCache.Value(i, partialMod));
+            return partialMod;
         }
 
         public Item Add(long value)
         {
-            values.AddLast(new Operand(Operator.add, value));
+            _values.Add(new Operand(Operator.add, value));
             return this;
         }
 
         public Item Multiply(long value)
         {
-            values.AddLast(new Operand(Operator.multiply, value));
+            _values.Add(new Operand(Operator.multiply, value));
             return this;
         }
         // Pow(2) with the 'MOD' value at that point.
         public Item MultiplySelf()
         {
-            values.AddLast(new Operand(Operator.multiplySelf, 0));
+            _values.Add(new Operand(Operator.multiplySelf, 0));
             return this;
         }
 
