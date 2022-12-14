@@ -1,6 +1,6 @@
 ﻿using AdventOfCode;
 
-Console.WriteLine(Day12.SecondPart());
+Console.WriteLine(Day13.SecondPart());
 
 
 
