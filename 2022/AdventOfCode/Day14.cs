@@ -17,8 +17,7 @@ namespace AdventOfCode
         // sand spawn is represented with +
         // sand at rest is represented with o
 
-
-        // from lower left corner:
+        // 0,0 is top left, going down right
         //  -> x - iterate columns; y - iterate rows;
         // draw rock in lines x, y are separated by ,
         // corners are separated with ->
