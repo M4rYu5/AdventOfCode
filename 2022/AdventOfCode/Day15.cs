@@ -40,6 +40,11 @@ namespace AdventOfCode
             return countCheckedCoordinates.ToString();
         }
 
+
+        /// <remarks>
+        /// I spent a long time to find this (first) solution, however this is not the best one. <br/>
+        /// A way much better one can be found here https://github.com/encse/adventofcode/blob/master/2022/Day15/Solution.cs
+        /// </remarks>
         public static string SecondPart()
         {
             var inputs = File.ReadAllLines("day15_input.txt");
