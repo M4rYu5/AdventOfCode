@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
-    internal sealed class Day15
+    internal static class Day15
     {
         // x goes right
         // y goes down
