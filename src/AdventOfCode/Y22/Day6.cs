@@ -6,13 +6,13 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day6
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day6_input.txt");
+            var inputs = File.ReadAllLines("Y22/day6_input.txt");
             int index = 0;
 
             foreach (var input in inputs)
@@ -39,7 +39,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day6_input.txt");
+            var inputs = File.ReadAllLines("Y22/day6_input.txt");
             int index = 0;
 
             foreach (var input in inputs)

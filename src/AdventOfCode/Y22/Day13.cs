@@ -10,7 +10,7 @@ using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day13
     {
@@ -18,14 +18,14 @@ namespace AdventOfCode
 
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day13_input.txt");
+            var inputs = File.ReadAllLines("Y22/day13_input.txt");
 
             var count = 0;
             for (int i = 0; i < inputs.Length; i += 3)
             {
                 var isCorrect = IsCorrectOrder(inputs[i], inputs[i + 1]);
                 if (isCorrect)
-                    count += (i / 3) + 1;
+                    count += i / 3 + 1;
             }
 
 
@@ -38,7 +38,7 @@ namespace AdventOfCode
             var item1 = "[[2]]";
             var item2 = "[[6]]";
 
-            var inputs = File.ReadAllLines("day13_input.txt").Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+            var inputs = File.ReadAllLines("Y22/day13_input.txt").Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
             inputs.AddRange(new string[] { item1, item2 });
 
             for (int i = 0; i + 1 < inputs.Count; i++)
@@ -56,9 +56,9 @@ namespace AdventOfCode
                 }
             }
 
-            var position1 = (inputs.IndexOf(item1) + 1);
-            var position2 = (inputs.IndexOf(item2) + 1);
-            return  (position1 * position2).ToString();
+            var position1 = inputs.IndexOf(item1) + 1;
+            var position2 = inputs.IndexOf(item2) + 1;
+            return (position1 * position2).ToString();
         }
 
 

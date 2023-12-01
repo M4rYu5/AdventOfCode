@@ -8,7 +8,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal static class Day15
     {
@@ -18,11 +18,11 @@ namespace AdventOfCode
         {
             public int DistanceTo(Point point)
             {
-                return Math.Abs(this.Column - point.Column) + Math.Abs(this.Row - point.Row);
+                return Math.Abs(Column - point.Column) + Math.Abs(Row - point.Row);
             }
             public int DistanceTo(int row, int column)
             {
-                return Math.Abs(this.Column - column) + Math.Abs(this.Row - row);
+                return Math.Abs(Column - column) + Math.Abs(Row - row);
             }
         }
         private record CustomSet(Point Sensor, Point Beacon, int Distance);
@@ -30,7 +30,7 @@ namespace AdventOfCode
 
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day15_input.txt");
+            var inputs = File.ReadAllLines("Y22/day15_input.txt");
 
             List<CustomSet> sensorInfo = new();
             FillInfo(sensorInfo, inputs);
@@ -47,7 +47,7 @@ namespace AdventOfCode
         /// </remarks>
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day15_input.txt");
+            var inputs = File.ReadAllLines("Y22/day15_input.txt");
 
             List<CustomSet> sensorInfo = new();
             FillInfo(sensorInfo, inputs);
@@ -194,9 +194,9 @@ namespace AdventOfCode
 
             var row = testRanges[0].row;
             var foundRanges = testRanges[0].column;
-            if(foundRanges.Count == 2)
+            if (foundRanges.Count == 2)
             {
-                if(foundRanges[1].Start - foundRanges[0].End != 2)
+                if (foundRanges[1].Start - foundRanges[0].End != 2)
                     throw new Exception("It should be a single value");
                 return new Point(foundRanges[0].End + 1, row);
             }
@@ -208,9 +208,9 @@ namespace AdventOfCode
                     return new Point(0, row);
                 if (foundRanges[0].Start < lowerLimit && foundRanges[0].End == higherLimit - 1)
                     return new Point(higherLimit, row);
-                        
+
             }
-            
+
             throw new Exception("It should be a single value");
         }
 

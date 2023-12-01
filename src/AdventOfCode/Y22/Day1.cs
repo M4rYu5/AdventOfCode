@@ -4,28 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day1
     {
         public static string FirstPart()
         {
-            var input = File.ReadAllLines("day1_input.txt");
+            var input = File.ReadAllLines("Y22/day1_input.txt");
 
             int max = 0;
             int currentCount = 0;
-            foreach(var line in input)
+            foreach (var line in input)
             {
-                if(line == "")
+                if (line == "")
                 {
                     if (currentCount > max)
                         max = currentCount;
-                    
+
                     currentCount = 0;
                     continue;
                 }
 
-                if(int.TryParse(line, out int itemCalories))
+                if (int.TryParse(line, out int itemCalories))
                 {
                     currentCount += itemCalories;
                 }
@@ -37,7 +37,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var input = File.ReadAllLines("day1_input.txt");
+            var input = File.ReadAllLines("Y22/day1_input.txt");
 
             SortedSet<int> max = new SortedSet<int>();
 

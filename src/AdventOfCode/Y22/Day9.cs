@@ -7,13 +7,13 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day9
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day9_input.txt");
+            var inputs = File.ReadAllLines("Y22/day9_input.txt");
 
             // the display will be in the 4th quadrant
             // 0,0 will be left top,
@@ -41,7 +41,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day9_input.txt");
+            var inputs = File.ReadAllLines("Y22/day9_input.txt");
 
             // the display will be in the 4th quadrant
             // 0,0 will be left top,
@@ -58,7 +58,7 @@ namespace AdventOfCode
             foreach (var direction in GetNextDirection(inputs))
             {
                 knotPositions[0] = MoveTowards(knotPositions[0], direction);
-                for(int i = 0; i + 1 < knotPositions.Length; i++)
+                for (int i = 0; i + 1 < knotPositions.Length; i++)
                     MoveTail(knotPositions[i], ref knotPositions[i + 1]);
                 // update history
                 if (!tailHistory.Contains(knotPositions[^1]))

@@ -6,13 +6,13 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day8
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day8_input.txt");
+            var inputs = File.ReadAllLines("Y22/day8_input.txt");
 
             var visibleTrees = inputs.Length * 2 + inputs[0].Length + inputs[^1].Length - 4;
             for (int i = 1; i + 1 < inputs.Length; i++)
@@ -78,7 +78,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day8_input.txt");
+            var inputs = File.ReadAllLines("Y22/day8_input.txt");
 
             var bestScenicScore = 0;
             for (int i = 0; i < inputs.Length; i++)
@@ -109,7 +109,7 @@ namespace AdventOfCode
             for (int i = column + 1; i < inputs[row].Length; i++)
             {
                 var tree = int.Parse(inputs[row][i].ToString());
-                if(tree < currentTree)
+                if (tree < currentTree)
                     count++;
                 else
                 {

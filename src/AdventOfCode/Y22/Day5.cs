@@ -6,20 +6,20 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day5
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day5_input.txt");
-           
+            var inputs = File.ReadAllLines("Y22/day5_input.txt");
+
             var (stacks, _, stackNameColumn) = GetInitialStacks(inputs);
             MoveStacks(inputs, stacks, stackNameColumn);
 
 
             string topStack = "";
-            foreach(var stack in stacks)
+            foreach (var stack in stacks)
             {
                 topStack += stack.Peek();
             }
@@ -28,7 +28,7 @@ namespace AdventOfCode
         }
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day5_input.txt");
+            var inputs = File.ReadAllLines("Y22/day5_input.txt");
 
             var (stacks, numOfStacks, stackNameColumn) = GetInitialStacks(inputs);
             MoveStacks2(inputs, stacks, stackNameColumn);
@@ -45,10 +45,10 @@ namespace AdventOfCode
 
         private static void MoveStacks(string[] inputs, Stack<char>[] stacks, int stackNameColumn)
         {
-            foreach(var move in inputs.Skip(stackNameColumn + 2))
+            foreach (var move in inputs.Skip(stackNameColumn + 2))
             {
                 var command = GetMoveCommand(move);
-                for(int i = 0; i < command.count; i++)
+                for (int i = 0; i < command.count; i++)
                 {
                     var item = stacks[command.fromIndex].Pop();
                     stacks[command.toIndex].Push(item);
@@ -84,22 +84,22 @@ namespace AdventOfCode
         {
             (int numOfStacks, int stackNameColumn) = GetNumOfStacks(inputs);
             Stack<char>[] stacks = new Stack<char>[numOfStacks];
-            for(int i = 0; i < stacks.Length; i++)
+            for (int i = 0; i < stacks.Length; i++)
             {
                 stacks[i] = new Stack<char>();
             }
 
             for (int i = stackNameColumn - 1; i >= 0; i--)
             {
-                for(int j = 0; j <= inputs[i].Length/4; j++)
+                for (int j = 0; j <= inputs[i].Length / 4; j++)
                 {
-                    char chr = inputs[i][1+j*4];
+                    char chr = inputs[i][1 + j * 4];
                     if (char.IsLetter(chr))
                     {
                         stacks[j].Push(chr);
                     }
                 }
-                
+
             }
             return (stacks, numOfStacks, stackNameColumn);
         }
@@ -108,7 +108,7 @@ namespace AdventOfCode
         {
             var numOfStacks = 0;
             var index = 0;
-            foreach(var input in inputs)
+            foreach (var input in inputs)
             {
                 if (input.Length > 1 && int.TryParse(input[1].ToString(), out _))
                 {

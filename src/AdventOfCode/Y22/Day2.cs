@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day2
     {
@@ -27,11 +27,11 @@ namespace AdventOfCode
 
         public static string FirstPart()
         {
-            var input = File.ReadAllLines("day2_input.txt");
+            var input = File.ReadAllLines("Y22/day2_input.txt");
 
 
             int playerPoints = 0;
-            foreach(var line in input)
+            foreach (var line in input)
             {
 
                 RPS playerHand = GetPlayerHand(line);
@@ -47,7 +47,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var input = File.ReadAllLines("day2_input.txt");
+            var input = File.ReadAllLines("Y22/day2_input.txt");
 
 
             int playerPoints = 0;
@@ -172,7 +172,7 @@ namespace AdventOfCode
             };
         }
 
-    
+
 
     }
 }

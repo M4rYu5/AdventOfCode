@@ -6,37 +6,37 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day10
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day10_input.txt");
+            var inputs = File.ReadAllLines("Y22/day10_input.txt");
 
             var cycle = 0;
             var sum = 0;
             var xReg = 1;
-            foreach(var operation in inputs)
+            foreach (var operation in inputs)
             {
                 if (operation == "noop")
                     IncrementCycle();
                 else if (operation.StartsWith("addx "))
                 {
-                    for(int i = 0; i < 2; i ++)
+                    for (int i = 0; i < 2; i++)
                         IncrementCycle();
                     var number = operation[5..];
                     xReg += int.Parse(number);
                 }
             }
-            
+
 
             return sum.ToString();
 
             void IncrementCycle()
             {
                 cycle++;
-                if((cycle - 20) % 40 == 0 )
+                if ((cycle - 20) % 40 == 0)
                 {
                     sum += xReg * cycle;
                 }
@@ -47,7 +47,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day10_input.txt");
+            var inputs = File.ReadAllLines("Y22/day10_input.txt");
 
             var cycle = 0;
             var sum = 0;
