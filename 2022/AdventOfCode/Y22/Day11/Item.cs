@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Day11
+namespace AdventOfCode.Y22.Day11
 {
     public enum Operator
     {
@@ -25,7 +25,7 @@ namespace AdventOfCode.Day11
 
         public Item(long val)
         {
-            this.Add(val);
+            Add(val);
         }
 
         public long Mod(int mod)
@@ -47,13 +47,13 @@ namespace AdventOfCode.Day11
                 i = cache.Value.Index;
             }
 
-            for(; i < _values.Count; i++)
+            for (; i < _values.Count; i++)
             {
                 partialMod = _values[i].Operator switch
                 {
                     Operator.add => (partialMod + _values[i].Value % mod) % mod,
-                    Operator.multiply => (partialMod * _values[i].Value % mod) % mod,
-                    Operator.multiplySelf => (partialMod * partialMod) % mod,
+                    Operator.multiply => partialMod * _values[i].Value % mod % mod,
+                    Operator.multiplySelf => partialMod * partialMod % mod,
                     _ => throw new UnreachableException()
                 };
             }

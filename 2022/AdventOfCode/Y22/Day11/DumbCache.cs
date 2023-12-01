@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Day11
+namespace AdventOfCode.Y22.Day11
 {
 
     internal class DumbItemCache
@@ -22,7 +22,7 @@ namespace AdventOfCode.Day11
 
         public Value? Get(Key key)
         {
-            if(dumbCache.TryGetValue(key, out Value value))
+            if (dumbCache.TryGetValue(key, out Value value))
                 return value;
             return null;
         }

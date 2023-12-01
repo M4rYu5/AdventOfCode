@@ -7,14 +7,14 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day7
     {
 
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day7_input.txt");
+            var inputs = File.ReadAllLines("Y22/day7_input.txt");
 
             GenerateFileSystem(inputs, out _Directory root);
 
@@ -31,18 +31,18 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day7_input.txt");
+            var inputs = File.ReadAllLines("Y22/day7_input.txt");
 
             GenerateFileSystem(inputs, out _Directory root);
 
             // find all directories that have a size of < 100.000;
             int totalSpace = 70_000_000;
-            int neededSpace =30_000_000 - (totalSpace - root.Size);
+            int neededSpace = 30_000_000 - (totalSpace - root.Size);
             int foundDirSize = root.Size;
             root.ExecuteForAll((x) =>
             {
                 if (x is _Directory y && x.Size >= neededSpace && x.Size < foundDirSize)
-                    foundDirSize= x.Size;
+                    foundDirSize = x.Size;
             });
 
             return foundDirSize.ToString();

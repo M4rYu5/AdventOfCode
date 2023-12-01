@@ -1,9 +1,7 @@
-﻿using AdventOfCode;
+﻿
 
 
-
-
-Console.WriteLine(Day16.SecondPart());
+Console.WriteLine(AdventOfCode.Y22.Day16.SecondPart());
 
 
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Day11
+namespace AdventOfCode.Y22.Day11
 {
     internal static class Extensions
     {

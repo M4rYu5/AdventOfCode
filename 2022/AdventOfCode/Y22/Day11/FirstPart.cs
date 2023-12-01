@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Day11
+namespace AdventOfCode.Y22.Day11
 {
 
     public record struct MonkeyI(int mod, int throwMonkeyIdTrue, int throwMonkeyIdFalse, Queue<int> Items, Func<int, int> operation);
@@ -21,7 +21,7 @@ namespace AdventOfCode.Day11
                 new MonkeyI(17, 0, 1, new Queue<int> { 74}, (m) => m + 3)
             };
 
-        private static MonkeyI[] monkeysInput = new[] 
+        private static MonkeyI[] monkeysInput = new[]
             {
                 new MonkeyI(17, 2, 7, new Queue<int> { 83, 97, 95, 67 }, (m) => m * 19),
                 new MonkeyI(19, 7, 0, new Queue<int> { 71, 70, 79, 88, 56, 70 }, (m) => m + 2),
@@ -100,7 +100,7 @@ namespace AdventOfCode.Day11
             Console.WriteLine();
 
             // monkey business indicator
-            var comparer = new Day11.CustomComparerInt();
+            var comparer = new CustomComparerInt();
             var sortedDictionary = monkeyTransactionCount.ToImmutableSortedSet(comparer).Reverse();
             var first = sortedDictionary.First().Value;
             var second = sortedDictionary.Skip(1).First().Value;

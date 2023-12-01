@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode.Day11
+namespace AdventOfCode.Y22.Day11
 {
     public record struct MonkeyII(int Mod, int ThrowMonkeyIdTrue, int ThrowMonkeyIdFalse, Queue<Item> Items, Func<Item, Item> Operation);
 

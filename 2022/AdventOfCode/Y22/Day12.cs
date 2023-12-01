@@ -10,7 +10,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day12
     {
@@ -19,7 +19,7 @@ namespace AdventOfCode
 
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day12_input.txt");
+            var inputs = File.ReadAllLines("Y22/day12_input.txt");
             var map = GetMap(inputs, out Point start, out Point end);
 
             var bottomRight = new Point(map.GetLength(0) - 1, map.GetLength(1) - 1);
@@ -31,19 +31,19 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day12_input.txt");
+            var inputs = File.ReadAllLines("Y22/day12_input.txt");
             var map = GetMap(inputs, out Point start, out Point end);
 
             var bottomRight = new Point(map.GetLength(0) - 1, map.GetLength(1) - 1);
 
             var minDistance = int.MaxValue;
-            for(int i = 0; i <= bottomRight.RowIndex; i++)
-                for(int j = 0; j <= bottomRight.ColumnIndex; j++)
+            for (int i = 0; i <= bottomRight.RowIndex; i++)
+                for (int j = 0; j <= bottomRight.ColumnIndex; j++)
                 {
                     if (map[i, j] == 'a')
                     {
                         var distanceToTop = RadialSearch(map, new(i, j), end, bottomRight).Count() - 1;
-                        if(distanceToTop >= 0 && distanceToTop < minDistance)
+                        if (distanceToTop >= 0 && distanceToTop < minDistance)
                             minDistance = distanceToTop;
                     }
                 }

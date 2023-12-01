@@ -6,7 +6,7 @@ using System.Security.AccessControl;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day16
     {
@@ -60,7 +60,7 @@ namespace AdventOfCode
 
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day16_input.txt");
+            var inputs = File.ReadAllLines("Y22/day16_input.txt");
             List<Pipe> pipes = new();
 
             FillPipesFromInput(inputs, pipes);
@@ -75,7 +75,7 @@ namespace AdventOfCode
         // takes about 5 minutes, but whatever
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day16_input.txt");
+            var inputs = File.ReadAllLines("Y22/day16_input.txt");
             List<Pipe> pipes = new();
 
             FillPipesFromInput(inputs, pipes);
@@ -122,7 +122,7 @@ namespace AdventOfCode
             {
                 var distance = pipeToPipeDistance[lastPipeId, currentPipeId] + 1;
                 minutesLeft -= distance;
-                currentRelease = (minutesLeft) * pipes[currentPipeId].Element.FlowRate;
+                currentRelease = minutesLeft * pipes[currentPipeId].Element.FlowRate;
             }
             var flags = FlaggedElement<Pipe>.GetAllFlang();
             if (openedPipes == flags)
@@ -148,7 +148,7 @@ namespace AdventOfCode
                 nextRelease = OpenRecursive1(currentPipeId, i, pipeToPipeDistance, nextOpenedPipes, pipes, minutesLeft, cache);
                 //    cache[key] = nextRelease;
                 //}
-                
+
 
                 if (nextRelease > releasedByNext)
                     releasedByNext = nextRelease;
@@ -157,7 +157,7 @@ namespace AdventOfCode
             return currentRelease + releasedByNext;
         }
 
-        
+
 
 
         private record struct WorkingPipeSet(int lastPipeId, int currentPipeId, int minutesLeft);
@@ -273,7 +273,7 @@ namespace AdventOfCode
 
 
 
-                    var openedPipesAfterHuman = openedPipes | nextPipe.IdFlag;
+                var openedPipesAfterHuman = openedPipes | nextPipe.IdFlag;
                 for (int elephantNextIndex = 0; elephantNextIndex < pipes.Count; elephantNextIndex++)
                 {
                     var nextPipeE = pipes[elephantNextIndex];
@@ -285,9 +285,9 @@ namespace AdventOfCode
                     var key = new CacheKeyDay16(human.minutesLeft, elephant.minutesLeft, nextPipe.IdFlag, nextPipeE.IdFlag, nextOpenedPipes);
 
 
-                        nextRelease = OpenRecursive2(new WorkingPipeSet(human.currentPipeId, humanNextIndex, human.minutesLeft),
-                                                 new WorkingPipeSet(elephant.currentPipeId, elephantNextIndex, elephant.minutesLeft),
-                                                 pipeToPipeDistance, nextOpenedPipes, pipes);
+                    nextRelease = OpenRecursive2(new WorkingPipeSet(human.currentPipeId, humanNextIndex, human.minutesLeft),
+                                             new WorkingPipeSet(elephant.currentPipeId, elephantNextIndex, elephant.minutesLeft),
+                                             pipeToPipeDistance, nextOpenedPipes, pipes);
 
                     if (nextRelease > releasedByNext)
                         releasedByNext = nextRelease;

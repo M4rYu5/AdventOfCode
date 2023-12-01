@@ -6,16 +6,16 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day4
     {
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day4_input.txt");
+            var inputs = File.ReadAllLines("Y22/day4_input.txt");
 
             int fullyContainedCount = 0;
-            foreach(var input in inputs)
+            foreach (var input in inputs)
             {
                 var elfSection = input.Split(',');
                 int[] pairs = new int[4];
@@ -28,10 +28,10 @@ namespace AdventOfCode
                 pairs[3] = int.Parse(secondPairRange[1]);
 
                 if (pairs[0] <= pairs[2] && pairs[1] >= pairs[3]
-                    || (pairs[0] >= pairs[2] && pairs[1] <= pairs[3]))
+                    || pairs[0] >= pairs[2] && pairs[1] <= pairs[3])
                     fullyContainedCount++;
             }
-            
+
 
             return fullyContainedCount.ToString();
         }
@@ -40,7 +40,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day4_input.txt");
+            var inputs = File.ReadAllLines("Y22/day4_input.txt");
 
             int fullyContainedCount = 0;
             foreach (var input in inputs)

@@ -8,7 +8,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode
+namespace AdventOfCode.Y22
 {
     internal sealed class Day14
     {
@@ -41,7 +41,7 @@ namespace AdventOfCode
 
         public static string FirstPart()
         {
-            var inputs = File.ReadAllLines("day14_input.txt");
+            var inputs = File.ReadAllLines("Y22/day14_input.txt");
 
             int abysStart = 0;
             (int Column, int Row) sandSpawn = (500, 0);
@@ -65,7 +65,7 @@ namespace AdventOfCode
 
         public static string SecondPart()
         {
-            var inputs = File.ReadAllLines("day14_input.txt");
+            var inputs = File.ReadAllLines("Y22/day14_input.txt");
 
             int abysStart = 0;
             (int Column, int Row) sandSpawn = (500, 0);
@@ -80,7 +80,7 @@ namespace AdventOfCode
             FillWithSand(nonAirRooms, abysStart, sandSpawn);
 
             int points = 0;
-            foreach(var i in nonAirRooms)
+            foreach (var i in nonAirRooms)
             {
                 foreach (var j in i.Value)
                     if (j.Value == RoomType.Sand)
@@ -92,7 +92,7 @@ namespace AdventOfCode
 
         private static void MakeFloor(Dictionary<int, Dictionary<int, RoomType>> nonAirRooms, int floorAtRow, int spawnColumn)
         {
-           for(int i = spawnColumn - floorAtRow; i <= spawnColumn + floorAtRow; i++)
+            for (int i = spawnColumn - floorAtRow; i <= spawnColumn + floorAtRow; i++)
             {
                 if (!nonAirRooms.ContainsKey(floorAtRow))
                     nonAirRooms[floorAtRow] = new Dictionary<int, RoomType>();

@@ -12,49 +12,52 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="day10_input.txt">
+    <None Update="Y22\day10_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day12_input.txt">
+    <None Update="Y22\day12_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day13_input.txt">
+    <None Update="Y22\day13_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day14_input.txt">
+    <None Update="Y22\day14_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day16_input.txt">
+    <None Update="Y22\day16_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day15_input.txt">
+    <None Update="Y22\day15_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day4_input.txt">
+    <None Update="Y22\day4_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day5_input.txt">
+    <None Update="Y22\day5_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day6_input.txt">
+    <None Update="Y22\day6_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day7_input.txt">
+    <None Update="Y22\day7_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day8_input.txt">
+    <None Update="Y22\day8_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day9_input.txt">
+    <None Update="Y22\day9_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day1X_input.txt">
+    <None Update="Y22\day1X_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day3_input.txt">
+    <None Update="Y22\day3_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="day2_input.txt">
+    <None Update="Y22\day2_input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Y22\day1_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="day1_input.txt">
