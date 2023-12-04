@@ -1,7 +1,7 @@
 ﻿
 
 
-Console.WriteLine(AdventOfCode.Y23.Day3.SecondPart());
+Console.WriteLine(AdventOfCode.Y23.Day4.SecondPart());
 
 
 
